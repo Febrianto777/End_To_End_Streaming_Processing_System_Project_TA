@@ -42,7 +42,7 @@ public class AvroSerializer<T extends SpecificRecord> implements Serializer<T>{
             encoder.flush();
 
             byte[] bytes = outputStream.toByteArray();
-            System.out.println("Serialized Bytes: " + Arrays.toString(bytes));
+//            System.out.println("Serialized Bytes: " + Arrays.toString(bytes));
 
             return bytes;
 

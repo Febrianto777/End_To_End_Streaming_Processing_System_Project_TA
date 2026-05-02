@@ -6,8 +6,7 @@ import lib.transformation._
 import utility.ConfigUtils._
 import utility.ModelLoader
 import utility.SparkSessionUtils._
-
-import kudadiri.dataengineer.sparkApp.streamListener._
+import streamListener._
 
 import java.util.concurrent.ConcurrentLinkedQueue
 
@@ -16,14 +15,16 @@ object SparkStructuredStreamingApp {
     println("Spark Application Dimulai...")
 
     val config = getSparkConfigs("local")
+    val settings = getStreamConfigs("readStream")
     val sinkConfig = getStreamConfigs("sink")
+
     val spark = createSparkSession(config)
 
     val queue = new ConcurrentLinkedQueue[Metrics]()
-
     // Listener
     val listener = new MyStreamListener(queue)
     spark.streams.addListener(listener)
+
 
     // Writer
     val writer = new MetricsWriter(
@@ -31,13 +32,14 @@ object SparkStructuredStreamingApp {
       queue,
       sinkConfig("metrics")
     )
-
     writer.start()
 
     println("Spark selesai dimuat..")
 
     println("Memuat model..")
-    val rf_model = ModelLoader.getModelRandomForest("rf_model_ddos_detection")
+//    val model_dir = "rf_model_ddos_detection"
+    val model_dir = getStreamConfigs("rf_model")("path")
+    val rf_model = ModelLoader.getModelRandomForest(model_dir)
     println("Model berhasil dimuat..")
 
     val featureCols = Array(
@@ -53,9 +55,7 @@ object SparkStructuredStreamingApp {
       "Subflow_Fwd_Bytes", "Subflow_Bwd_Bytes",
       "Init_Win_bytes_forward", "Init_Win_bytes_backward"
     )
-
     val schema = getAvroSchema
-    val settings = getStreamConfigs("readStream")
     println("Proses inisialisasi proses selesai..")
     println("Process Pipeline Data Streaming dimulai..")
 

@@ -1,5 +1,0 @@
-2026-04-27 20:49:58 [producerId] Data Sent with Flow ID: 172.217.10.226-192.168.50.8-443-60846-6, dataForwardedTime:2026-04-27 13:49:57.563, dataReceiveTime:2026-04-27 13:49:58.044, brokerTimeStamp:1777297798044, latency=481
-2026-04-27 20:49:58 [producerId] Data Sent with Flow ID: 172.217.12.195-192.168.50.8-443-60854-6, dataForwardedTime:2026-04-27 13:49:57.575, dataReceiveTime:2026-04-27 13:49:58.144, brokerTimeStamp:1777297798144, latency=569
-2026-04-27 20:49:58 [producerId] Data Sent with Flow ID: 172.217.10.65-192.168.50.8-443-60848-6, dataForwardedTime:2026-04-27 13:49:57.577, dataReceiveTime:2026-04-27 13:49:58.146, brokerTimeStamp:1777297798146, latency=569
-2026-04-27 20:49:58 [producerId] Data Sent with Flow ID: 172.217.10.70-192.168.50.8-443-60856-6, dataForwardedTime:2026-04-27 13:49:57.580, dataReceiveTime:2026-04-27 13:49:58.148, brokerTimeStamp:1777297798148, latency=568
-2026-04-27 20:49:58 [producerId] Data Sent with Flow ID: 172.217.12.196-192.168.50.8-443-60850-6, dataForwardedTime:2026-04-27 13:49:57.583, dataReceiveTime:2026-04-27 13:49:58.151, brokerTimeStamp:1777297798151, latency=568

@@ -7,6 +7,7 @@ case class Metrics(
                   numInputRows: Long,
                   inputRate: Double,
                   processRate: Double,
-                  processingTimeMs: Long,
+                  batchDurationMs: Long,
+                  addBatchTimeMs: Long,
                   throughput: Double
                   )

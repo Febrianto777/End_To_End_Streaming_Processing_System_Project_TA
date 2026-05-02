@@ -15,8 +15,8 @@ public class KafkaConfig {
         props.put("value.serializer", avroSerializer);
 
         // Throughput + Skalabilitas
-        props.put("batch_size", 32768); // 32KB
-        props.put("linger.ms", 5);
+//        props.put("batch_size", 16384); // 32768, 32KB
+//        props.put("linger.ms", 0);
         props.put("compression.type", "lz4");
 
         // Buffer

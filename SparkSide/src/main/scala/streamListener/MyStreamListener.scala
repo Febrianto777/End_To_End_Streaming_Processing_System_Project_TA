@@ -11,7 +11,9 @@ class MyStreamListener(queue: ConcurrentLinkedQueue[Metrics]) extends StreamingQ
 
   override def onQueryProgress(event: StreamingQueryListener.QueryProgressEvent): Unit = {
     val p = event.progress
+    val batchDuration = p.durationMs.getOrDefault("triggerExecution", 0L)
     val addBatchTime = p.durationMs.getOrDefault("addBatch", 0L)
+
     val throughput =
       if (addBatchTime > 0) {
         p.numInputRows / (addBatchTime / 1000.0)
@@ -24,6 +26,7 @@ class MyStreamListener(queue: ConcurrentLinkedQueue[Metrics]) extends StreamingQ
       p.numInputRows,
       p.inputRowsPerSecond,
       p.processedRowsPerSecond,
+      batchDuration,
       addBatchTime,
       throughput
     )
