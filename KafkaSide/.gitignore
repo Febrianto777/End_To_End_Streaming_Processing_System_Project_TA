@@ -38,3 +38,5 @@ build/
 .DS_Store
 
 Dataset/*
+src/main/java/kudadiri/DataEngineer/portofolio/KafkaTest.java
+src/main/java/kudadiri/DataEngineer/portofolio/RunningPrinter.java

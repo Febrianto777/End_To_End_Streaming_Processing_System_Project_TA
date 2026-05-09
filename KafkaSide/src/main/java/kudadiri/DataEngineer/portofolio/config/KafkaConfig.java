@@ -9,7 +9,7 @@ public class KafkaConfig {
         String serializer = StringSerializer.class.getName();
         String avroSerializer = AvroSerializer.class.getName();
         Properties props = new Properties();
-//        props.put("client.id", clientId);
+        props.put("client.id", clientId);
         props.put("bootstrap.servers", servers);
         props.put("key.serializer", serializer);
         props.put("value.serializer", avroSerializer);

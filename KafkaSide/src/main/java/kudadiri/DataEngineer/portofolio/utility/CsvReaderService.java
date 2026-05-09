@@ -11,7 +11,6 @@ import java.util.*;
 public class CsvReaderService {
     public static List<DataRecord> readCsv(String filePath) {
         List<DataRecord> records = new ArrayList<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 //        int recordCount = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
