@@ -25,16 +25,16 @@ public class KafkaProducerApp {
             logger.info("Access Granted, Program Running Producer With Name {}", args[0]);
         }
 
-        String producerId = args[0];
-        String servers = args[1];
-        String topic = args[2];
-        String filePath = args[3];
-        int inputRate = Integer.parseInt(args[4]);
-//        String producerId = "producer-1";
-//        String servers = "172.25.5.7:9092";
-//        String topic = "topic-network";
-//        int inputRate = 200;
-//        String filePath = "Dataset/skenario2.csv";
+         String producerId = args[0];
+         String servers = args[1];
+         String topic = args[2];
+         String filePath = args[3];
+         int inputRate = Integer.parseInt(args[4]);
+//       String producerId = "producer-1";
+//       String servers = "172.25.5.7:9092";
+//       String topic = "topic-network";
+//       int inputRate = 100;
+//       String filePath = "Dataset/skenario2.csv";
 
         KafkaProducerService producer = new KafkaProducerService(
                 KafkaConfig.getProducerConfig(servers, producerId),

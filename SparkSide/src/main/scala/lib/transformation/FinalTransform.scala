@@ -6,6 +6,14 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 
 object FinalTransform {
+  //  def printSimple(data: DataFrame): DataFrame = {
+  //    val left = data.columns.take(2)
+  //    val right = data.columns.takeRight(5)
+  //    val concat = data.select(left.map(col) :+ lit("..").alias("..") :++ right.map(col): _*)
+  //
+  //    concat
+  //  }
+
   def process(data: DataFrame): DataFrame = {
     val df = data
       .withColumn(

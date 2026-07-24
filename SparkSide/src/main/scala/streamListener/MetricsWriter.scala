@@ -53,6 +53,7 @@ class MetricsWriter(
 
     if (batch.nonEmpty) {
       import spark.implicits._
+      
       spark.createDataset(batch).write
         .mode("append")
         .parquet(path)

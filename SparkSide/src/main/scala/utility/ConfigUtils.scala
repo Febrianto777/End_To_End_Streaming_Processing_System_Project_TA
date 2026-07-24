@@ -10,7 +10,7 @@ import java.io.File
 object ConfigUtils {
   def getSparkConfigs(cluster: String): SparkConf = {
     val configFile = new File("config/application.conf")
-    val config: Config = ConfigFactory.parseFile(configFile).resolve()
+    val config: Config = ConfigFactory.parseFile(configFile)
     val sparkConf = new SparkConf()
 
     config.getConfig(s"spark.$cluster")
@@ -25,7 +25,7 @@ object ConfigUtils {
   def getStreamConfigs(action: String): mutable.HashMap[String, String] = {
     val settings: mutable.HashMap[String, String] = mutable.HashMap().empty
     val configFile = new File("config/application.conf")
-    val config: Config = ConfigFactory.parseFile(configFile).resolve()
+    val config: Config = ConfigFactory.parseFile(configFile)
     config.getConfig(s"variables.$action")
       .entrySet()
       .forEach { entry =>

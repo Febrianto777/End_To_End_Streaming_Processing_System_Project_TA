@@ -11,7 +11,7 @@ import java.util.*;
 public class CsvReaderService {
     public static List<DataRecord> readCsv(String filePath) {
         List<DataRecord> records = new ArrayList<>();
-//        int recordCount = 0;
+        int recordCount = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String headerLine = br.readLine();
@@ -23,7 +23,7 @@ public class CsvReaderService {
             }
 
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null && recordCount < 7) {
                 String[] v = line.split(",", -1);
                 DataRecord.Builder r = DataRecord.newBuilder();
 
@@ -141,7 +141,7 @@ public class CsvReaderService {
                 r.setLabel(getString(v, indexMap, "Label"));
 
                 records.add(r.build());
-//                recordCount++;
+                recordCount++;
             }
         } catch (Exception e) {
             e.printStackTrace();
